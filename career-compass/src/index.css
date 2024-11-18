@@ -1,3 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active{
+  color: white;
+  text-decoration: underline;
+}
+
+body{
+  font-family: 'Sora', sans-serif;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
