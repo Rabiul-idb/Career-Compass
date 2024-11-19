@@ -6,6 +6,7 @@ import MainLayout from './Layout/MainLayout';
 import AboutMore from './Layout/AboutMore';
 import Contact from './Layout/ContactLayout';
 import Error from './Components/Error';
+import Service from './Components/Service';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
     path: "/about",
     element: <AboutMore></AboutMore>,
   },
+  // {
+  //   path: "/service",
+  //   element: <Service></Service>,
+  //   loader: ()=> fetch('/serviceData.json'),
+  // },
   {
     path: "/contact",
     element: <Contact></Contact>,

@@ -1,0 +1,109 @@
+[
+    {
+      "id": 1,
+      "image": "https://i.ibb.co.com/RgfGx5P/service1.jpg",
+      "service_name": "Career Counseling Sessions",
+      "category": "Online",
+      "brief_description": "One-on-one career counseling to help you navigate your professional journey.",
+      "pricing": "$50 per session",
+      "duration": "05-12-24 5-6pm",
+      "counselor": "Dr. Emily Carter",
+      "rating": 4.8
+    },
+    {
+      "id": 2,
+      "image": "https://i.ibb.co.com/TWPXwYG/service2.jpg",
+      "service_name": "Resume Review",
+      "category": "Offline",
+      "brief_description": "Get your resume reviewed by industry professionals to make it stand out.",
+      "pricing": "$30 per review",
+      "duration": "06-12-24 3-4pm",
+      "counselor": "Mr. John Smith",
+      "rating": 4.7
+    },
+    {
+      "id": 3,
+      "image": "https://i.ibb.co.com/85yStfQ/service3.jpg",
+      "service_name": "Mock Interviews",
+      "category": "Group",
+      "brief_description": "Practice interviews with feedback to boost your confidence.",
+      "pricing": "$40 per session",
+      "duration": "07-12-24 1-2pm",
+      "counselor": "Ms. Sophia Martinez",
+      "rating": 4.9
+    },
+    {
+      "id": 4,
+      "image": "https://i.ibb.co.com/2YrNdLB/service4.jpg",
+      "service_name": "Skill Assessment",
+      "category": "Online",
+      "brief_description": "Evaluate your skill set and identify areas for improvement.",
+      "pricing": "$25 per assessment",
+      "duration": "08-12-24 10-11am",
+      "counselor": "Dr. Rachel Lee",
+      "rating": 4.6
+    },
+    {
+      "id": 5,
+      "image": "https://i.ibb.co.com/ByLt9qZ/service5.jpg",
+      "service_name": "Networking Workshop",
+      "category": "Group",
+      "brief_description": "Learn how to build professional connections effectively.",
+      "pricing": "$35 per participant",
+      "duration": "09-12-24 4-5pm",
+      "counselor": "Ms. Olivia Brown",
+      "rating": 4.7
+    },
+    {
+      "id": 6,
+      "image": "https://i.ibb.co.com/BVHKq9H/service6.jpg",
+      "service_name": "Career Planning Session",
+      "category": "Offline",
+      "brief_description": "Create a tailored career roadmap with expert guidance.",
+      "pricing": "$60 per session",
+      "duration": "10-12-24 2-3pm",
+      "counselor": "Dr. James Wilson",
+      "rating": 4.8
+    },
+    {
+      "id": 7,
+      "image": "https://i.ibb.co.com/yF467rN/service7.jpg",
+      "service_name": "Personal Branding",
+      "category": "Online",
+      "brief_description": "Enhance your personal brand to attract the right opportunities.",
+      "pricing": "$45 per session",
+      "duration": "11-12-24 11am-12pm",
+      "counselor": "Ms. Laura Green",
+      "rating": 4.9
+    },
+    {
+      "id": 8,
+      "image": "https://i.ibb.co.com/4M2RHPp/service8.jpg",
+      "service_name": "Portfolio Building",
+      "category": "Group",
+      "brief_description": "Create a standout portfolio to showcase your work and skills.",
+      "pricing": "$50 per session",
+      "duration": "12-12-24 5-6pm",
+      "counselor": "Mr. William Taylor",
+      "rating": 4.8
+    },
+    {
+      "id": 9,
+      "image": "https://i.ibb.co.com/6vB2PhZ/service9.jpg",
+      "service_name": "Goal Setting Workshop",
+      "category": "Offline",
+      "brief_description": "Define clear, actionable career goals and milestones.",
+      "pricing": "$40 per participant",
+      "duration": "13-12-24 3-4pm",
+      "counselor": "Dr. Henry Scott",
+      "rating": 4.7
+    }
+  ]
+  
+
+
+
+
+
+
+
