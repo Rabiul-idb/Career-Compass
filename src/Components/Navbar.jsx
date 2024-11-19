@@ -12,6 +12,7 @@ const Navbar = () => {
                     <li><NavLink to={"/"} className="text-base font-semibold">Home</NavLink></li>
                     <li><NavLink to={"/about"} className="text-base font-semibold">About</NavLink></li>
                     <li><NavLink to={"/contact"} className="text-base font-semibold">Contact</NavLink></li>
+                    <li><NavLink to={"/login"} className="text-base font-semibold">login</NavLink></li>
                 </ul>
             </div>
             <div className="">

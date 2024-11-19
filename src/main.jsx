@@ -6,23 +6,41 @@ import MainLayout from './Layout/MainLayout';
 import AboutMore from './Layout/AboutMore';
 import Contact from './Layout/ContactLayout';
 import Error from './Components/Error';
-import Service from './Components/Service';
+import HomeLayout from "./Layout/HomeLayout";
+import CareerDetails from './Components/CareerDetails';
+import ContextProvider from './ContextProvider/ContextProvider';
+import Login from './Components/Authentication/Login';
+import Register from './Components/Authentication/Register';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement:<Error></Error>
+    errorElement:<Error></Error>,
+    children:[
+      {
+        path: "/",
+        element: <HomeLayout></HomeLayout>
+      },
+      {
+        path: "/service/careerDetails/:id",
+        element:<CareerDetails></CareerDetails>
+      },
+      {
+        path: "/login",
+        element:<Login></Login>
+      },
+      {
+        path: "/register",
+        element:<Register></Register>
+      }
+    ]
   },
   {
     path: "/about",
     element: <AboutMore></AboutMore>,
   },
-  // {
-  //   path: "/service",
-  //   element: <Service></Service>,
-  //   loader: ()=> fetch('/serviceData.json'),
-  // },
+  
   {
     path: "/contact",
     element: <Contact></Contact>,
@@ -31,6 +49,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>
   </StrictMode>,
 )

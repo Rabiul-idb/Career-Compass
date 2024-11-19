@@ -1,8 +1,14 @@
+import { useNavigate } from "react-router-dom";
 
 
 const ServiceCard = ({cardData}) => {
 
     const {id, image, service_name, category, brief_description, pricing, duration, counselor, rating} = cardData;
+
+    const navigate = useNavigate();
+    const CareerDetails = (id)=> {
+        navigate(`/service/careerDetails/${id}`)
+    }
 
     return (
         <div className="card bg-base-100  shadow-xl p-5">
@@ -32,7 +38,7 @@ const ServiceCard = ({cardData}) => {
             <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-green-500" />
         </div>
         <span className="ml-2">({rating})</span></div>
-      <button className="btn btn-info rounded-3xl py-1 text-base text-white block mt-2 w-full">view Details</button>
+      <button onClick={()=> CareerDetails(id)} className="btn btn-info rounded-3xl py-1 text-base text-white block mt-2 w-full">view Details</button>
     </div>
   </div>
 </div>
