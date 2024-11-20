@@ -1,13 +1,17 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../ContextProvider/ContextProvider";
+import { FaRegEye ,FaEyeSlash } from "react-icons/fa";
+
 
 
 const Register = () => {
 
     const {CreateNewUser, setUser, updateUserProfile, setLoading} = useContext(AuthContex);
    
-    const [error, setError] = useState({});
+    const [error, setError] = useState('');
+    const [passError, setPassError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     
@@ -17,29 +21,34 @@ const Register = () => {
 
         const name = e.target.username.value;
         if(name.length < 5){
-            setError({...error, name: 'Name must be at least 5 characters'});
+            setError('Name must be at least 5 characters');
             return;
         }
         const email = e.target.email.value;
 
         const password = e.target.password.value;
+        if(password.length < 6){
+            setPassError('Password must be at least 6 characters');
+            return;
+        }
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
+        if(!regex.test(password)){
+            setPassError('Password must contain at least one uppercase letter, one lowercase letter, one digit , one special charecter')
+            return;
+        }   
+        
 
         const photo = e.target.photo.value;
 
-        console.log(name, email, password, photo)
+        //console.log(name, email, password, photo)
 
         CreateNewUser(email, password)
         .then((result) =>{
             const user = result.user;
-            setUser(user);
-            updateUserProfile({displayName: name, photoURL: photo})
-            .then(() =>{
-                navigate('/')
-            })
-            .catch(() =>{
-                setError({...error, photo: 'Failed to update profile photo'})
-            })
-            console.log(user);
+            setUser({...user, displayName: name, photoURL: photo});
+            navigate('/')
+            
+           // console.log(user);
             alert("Registerd")
             
             e.target.reset();
@@ -47,7 +56,7 @@ const Register = () => {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, errorMessage)
+           // console.log(errorCode, errorMessage)
         });
        
         
@@ -64,16 +73,18 @@ const Register = () => {
                     <input placeholder="User name" required type="text" name="username" className="outline outline-gray-400 w-full h-11 rounded-lg px-5 mt-2" />
                     <label>
                         {
-                            error.name ? (<p className="text-red-500 text-sm mt-1">{error.name}</p>) : " "
+                            error? (<p className="text-red-500 text-sm mt-1">{error}</p>) : " "
                         }
                     </label>
                 </div>
                 <div className="mb-5">
-                    <label className="text-text-clr font-semibold text-base">Password</label><br></br>
-                    <input placeholder="Password" required type="password" name="password" className="outline outline-gray-400 w-full h-11 rounded-lg px-5 mt-2" />
-                    <label>
+                    <label className="text-text-clr font-semibold text-base relative">Password<br></br>
+                        <input placeholder="Password" required type={!showPassword ? "password" : "text" } name="password" className="outline outline-gray-400 w-full h-11 rounded-lg px-5 mt-2" />
+                        <a onClick={() => setShowPassword(!showPassword)} className="btn btn-sm absolute right-2 top-9 text-base">{!showPassword ? <FaEyeSlash/> : <FaRegEye/>}</a> 
+                    </label>
+                    <label> 
                         {
-                            error.password ? (<p className="text-red-500 text-sm mt-1">{error.password}</p>) : " "
+                            passError ? (<p className="text-red-500 text-sm mt-1">{passError}</p>) : " "
                         }
                     </label>
                 </div>

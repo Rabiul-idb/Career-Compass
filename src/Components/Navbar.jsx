@@ -5,10 +5,10 @@ import { AuthContex } from "../ContextProvider/ContextProvider";
 
 
 const Navbar = () => {
-    console.log(import.meta.env.VITE_API_KEY);
+   // console.log(import.meta.env.VITE_API_KEY);
 
     const {user, logOut} = useContext(AuthContex);
-    console.log(user)
+   // console.log(user)
 
 
 
@@ -22,17 +22,17 @@ const Navbar = () => {
                     <li><NavLink to={"/"} className="text-base font-semibold">Home</NavLink></li>
                     <li><NavLink to={"/about"} className="text-base font-semibold">About</NavLink></li>
                     <li><NavLink to={"/contact"} className="text-base font-semibold">Contact</NavLink></li>
-                    <li><NavLink to={"/login"} className="text-base font-semibold">login</NavLink></li>
                 </ul>
             </div>
             <div className="">
             
-                <div tabIndex={0} role="button" className="btn px-8 font-semibold bg-white rounded-lg text-lg mr-2">
-                Enroll
+                <div tabIndex={0} role="button" className=" font-semibold text-white text-lg mr-2">
+                {
+                    user && user?.email ? user?.displayName : ""
+                }
                 </div>
             
                 {
-                    
                     user && user?.email ? (
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -46,9 +46,9 @@ const Navbar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow">
                             <li>
-                                <a className="justify-between">
-                                {user?.displayName}
-                                </a>
+                                <Link to={"/updateInfo"} className="justify-between">
+                                update profile
+                                </Link>
                             </li>
                             <li><a>{user?.email}</a></li>
                             <li onClick={logOut}><a>Logout</a></li>

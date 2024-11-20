@@ -12,6 +12,7 @@ import ContextProvider from './ContextProvider/ContextProvider';
 import Login from './Components/Authentication/Login';
 import Register from './Components/Authentication/Register';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import UpdateInfo from './Components/PrivateRoute/UpdateInfo';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,12 @@ const router = createBrowserRouter([
         path: "/service/careerDetails/:id",
         element:<PrivateRoute>
                   <CareerDetails></CareerDetails>
+              </PrivateRoute>
+      },
+      {
+        path: "/updateInfo",
+        element:<PrivateRoute>
+                 <UpdateInfo></UpdateInfo>
               </PrivateRoute>
       },
       {

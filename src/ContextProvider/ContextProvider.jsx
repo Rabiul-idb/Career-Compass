@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/Firebase.config";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 export const AuthContex = createContext();
 // Initialize Firebase Authentication and get a reference to the service
@@ -38,7 +38,7 @@ const ContextProvider = ({children}) => {
 
     },[]);
 
-    console.log(user);
+   // console.log(user);
 
     // user logOut 
     const logOut = ()=>{
@@ -53,12 +53,16 @@ const ContextProvider = ({children}) => {
     }
 
     // update profile
-    const updateUserProfile = (profile) => {
-        setLoading(true);
-        return updateProfile(auth.currentUser, profile);
-    }
+    // const updateUserProfile = (profile) => {
+    //     setLoading(true);
+    //     return updateProfile(auth.currentUser, profile);
+    // }
 
-    
+    // forgot email
+    const forgotPassword = (email) => {
+        setLoading(true);
+        return sendPasswordResetEmail(auth, email);
+    }
 
 
     const contextValue = {
@@ -71,7 +75,8 @@ const ContextProvider = ({children}) => {
         userLogin,
         loading,
         setLoading,
-        updateUserProfile,
+        forgotPassword,
+        auth,
     }
 
     return (
