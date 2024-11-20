@@ -58,6 +58,9 @@ const ContextProvider = ({children}) => {
         return updateProfile(auth.currentUser, profile);
     }
 
+    
+
+
     const contextValue = {
         allData,
         setAllData,
@@ -67,7 +70,8 @@ const ContextProvider = ({children}) => {
         logOut,
         userLogin,
         loading,
-        updateUserProfile
+        setLoading,
+        updateUserProfile,
     }
 
     return (

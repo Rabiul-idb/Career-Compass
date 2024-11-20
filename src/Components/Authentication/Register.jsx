@@ -5,7 +5,7 @@ import { AuthContex } from "../../ContextProvider/ContextProvider";
 
 const Register = () => {
 
-    const {CreateNewUser, setUser, updateUserProfile} = useContext(AuthContex);
+    const {CreateNewUser, setUser, updateUserProfile, setLoading} = useContext(AuthContex);
    
     const [error, setError] = useState({});
     const navigate = useNavigate();
@@ -23,13 +23,6 @@ const Register = () => {
         const email = e.target.email.value;
 
         const password = e.target.password.value;
-        const validatePassword = (password)=>{
-            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
-            return regex.test(password);
-        }
-        if(!validatePassword(password)){
-            setError({...error, password: 'Password must be at least 8 characters and contain at least 1 uppercase, 1 lowercase, 1 number and 1 special character'})
-        }
 
         const photo = e.target.photo.value;
 

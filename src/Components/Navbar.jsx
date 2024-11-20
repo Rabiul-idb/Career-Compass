@@ -5,10 +5,12 @@ import { AuthContex } from "../ContextProvider/ContextProvider";
 
 
 const Navbar = () => {
+    console.log(import.meta.env.VITE_API_KEY);
 
     const {user, logOut} = useContext(AuthContex);
     console.log(user)
-   
+
+
 
     return (
         <div className="navbar  flex justify-between items-center w-11/12 mx-auto">
@@ -49,7 +51,6 @@ const Navbar = () => {
                                 </a>
                             </li>
                             <li><a>{user?.email}</a></li>
-                            <li><Link to={'/register'}>Update Profile</Link></li>
                             <li onClick={logOut}><a>Logout</a></li>
                             </ul>
                         </div>
