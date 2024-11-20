@@ -1,10 +1,15 @@
 import { createContext, useEffect, useState } from "react";
+import app from "../Firebase/Firebase.config";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged } from "firebase/auth";
 
 export const AuthContex = createContext();
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);
 
 const ContextProvider = ({children}) => {
 
     const [allData, setAllData] = useState([]);
+    const [user, setUser] = useState(null);
 
     useEffect(()=>{
         fetch('/public/serviceData.json')
@@ -14,11 +19,25 @@ const ContextProvider = ({children}) => {
         )
     },[])
 
+    const CreateNewUser = (email, password)=>{
+        return createUserWithEmailAndPassword(auth, email, password);
+    };
     
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            });
+            return unsubscribe;
+    },[]);
+
+    console.log(user);
 
     const contextValue = {
         allData,
-        setAllData
+        setAllData,
+        CreateNewUser,
+        user,
+        setUser,
     }
 
     return (
