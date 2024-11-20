@@ -1,7 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContex } from "../ContextProvider/ContextProvider";
+
 
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContex);
+    console.log(user)
+   
+
     return (
         <div className="navbar  flex justify-between items-center w-11/12 mx-auto">
             <div className="">
@@ -17,31 +25,41 @@ const Navbar = () => {
             </div>
             <div className="">
             
-                <div tabIndex={0} role="button" className="btn px-8 font-semibold bg-white rounded-lg text-lg ">
+                <div tabIndex={0} role="button" className="btn px-8 font-semibold bg-white rounded-lg text-lg mr-2">
                 Enroll
                 </div>
             
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                        <img
-                        alt="Tailwind CSS Navbar component"
-                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                    </div>
-                    </div>
-                    <ul
-                    tabIndex={0}
-                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <li>
-                        <a className="justify-between">
-                        Profile
-                        <span className="badge">New</span>
-                        </a>
-                    </li>
-                    <li><a>Settings</a></li>
-                    <li><a>Logout</a></li>
-                    </ul>
-                </div>
+                {
+                    
+                    user && user?.email ? (
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-11 rounded-full">
+                                <img
+                                alt="user" className="w-11 h-11 rounded-full"
+                                src={user?.photoURL} />
+                            </div>
+                            </div>
+                            <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow">
+                            <li>
+                                <a className="justify-between">
+                                {user?.displayName}
+                                </a>
+                            </li>
+                            <li><a>{user?.email}</a></li>
+                            <li><Link to={'/register'}>Update Profile</Link></li>
+                            <li onClick={logOut}><a>Logout</a></li>
+                            </ul>
+                        </div>
+                    ) : (
+                        <Link to={'/login'} className="btn">Login</Link>
+                    )
+                }
+
+
+                
             </div>
       </div>
     );

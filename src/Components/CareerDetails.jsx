@@ -8,11 +8,11 @@ import { IoMdSend } from "react-icons/io";
 const CareerDetails = () => {
 
     const {allData} = useContext(AuthContex);
-    console.log(allData)
+    //console.log(allData)
 
     const param = useParams();
     const serviceId = parseInt(param ?.id);
-    console.log(serviceId);
+    //console.log(serviceId);
 
     const eachCardData = [...allData].find(i => i.id === serviceId)
     
