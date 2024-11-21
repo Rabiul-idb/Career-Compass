@@ -11,7 +11,7 @@ const SelectedCard = ({item}) => {
                      <img src={image} className="w-28 object-cover rounded-2xl " alt={service_name} />
                 </div>
                 <div>
-                    <h2 className="font-semibold text-xl">{service_name}</h2>
+                    <h2 className="font-semibold md:text-xl text-lg">{service_name}</h2>
                     <p className="font-semibold text-base text-black">Counselor: <span className="text-gray-500">{counselor}</span></p>
                     <p className="font-semibold text-base text-black">Date: <span className="text-gray-500">{duration}</span></p>
                     <p className="font-semibold text-base text-red-500">{pricing}</p>

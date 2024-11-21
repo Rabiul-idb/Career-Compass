@@ -65,14 +65,14 @@ const Register = () => {
     }
 
     return (
-        <div className="border border-gray-500 rounded-2xl p-7 w-5/12 mx-auto mt-12 mb-10 bg-cyan-50">
+        <div className="border border-gray-500 rounded-2xl p-7 lg:w-5/12 md:w-8/12 w-10/12 mx-auto mt-12 mb-10 bg-cyan-50">
 
 
         <Helmet>
           <title>Register || Career Compass</title>
         </Helmet>
 
-            <h2 className="font-bold text-3xl text-center">User Registration</h2>
+            <h2 className="font-bold md:text-2xl text-xl lg:text-3xl text-center">User Registration</h2>
             <hr className="my-3"/>
             <form onSubmit={handleSubmit}>
                 <div className="mb-5">

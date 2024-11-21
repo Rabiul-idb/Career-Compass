@@ -5,19 +5,19 @@ const Contact = () => {
     return (
         <div className='w-11/12 mx-auto mb-8'>
             <div className="text-center mt-5">
-                <span className="text-lg font-semibold uppercase text-info mb-10">Contact Us</span>
-                <h2 className="text-4xl font-bold text-slate-900 mt-3 mb-6 leading-tight">We Have a Professional <br></br>Support Team</h2>
+                <span className="text-lg font-semibold md:uppercase text-info mb-10">Contact Us</span>
+                <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold text-slate-900 mt-3 mb-6 leading-tight">We Have a Professional <br></br>Support Team</h2>
             </div>
-            <div className="flex gap-7  justify-center items-center  mt-10">
+            <div className="flex flex-col md:flex-row gap-7  justify-center items-center  mt-10">
                 <div className='border-2 shadow-xl p-12 rounded-xl'>
                     <div className="inline-flex gap-7">
                         <div><img src={support} alt="" /></div>
                         <div>
-                            <h2 className="font-medium text-3xl ">Customer Support</h2>
+                            <h2 className="font-medium text-2xl lg:text-3xl ">Customer Support</h2>
                             <p className="text-slate-400 my-4">
                                 We are here to help you with any questions or concerns you may have.
                             </p>
-                            <button className="btn btn-info px-10 text-lg">Get Token</button>
+                            <button className="btn btn-info lg:px-10 lg:text-lg">Get Token</button>
                         </div>
                     </div>
                 </div>
@@ -25,11 +25,11 @@ const Contact = () => {
                     <div className="inline-flex gap-7">
                         <div><img src={text} alt="" /></div>
                         <div>
-                            <h2 className="font-medium text-3xl ">Have any Questions?</h2>
+                            <h2 className="font-medium text-2xl lg:text-3xl ">Have any Questions?</h2>
                             <p className="text-slate-400 my-4">
                                 We are here to help you with any questions or concerns you may have.
                             </p>
-                            <button className="btn btn-info px-10 text-lg">Contact us</button>
+                            <button className="btn btn-info lg:px-10 lg:text-lg">Contact us</button>
                         </div>
                     </div>
                 </div>

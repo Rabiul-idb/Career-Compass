@@ -67,23 +67,23 @@ const CareerDetails = () => {
            <div className=" relative mb-3">
                 <img src={img} className="object-cover object-center h-80 w-full" alt="" />
                 <div className="absolute top-20 left-20 ">
-                    <h1 className="font-bold text-5xl text-white">Career Details</h1>
+                    <h1 className="font-bold md:text-3xl text-2xl lg:text-5xl text-white">Career Details</h1>
                     <p className="font-black text-white text-base mt-5"><Link to={"/"} className="text-info hover:text-blue-700">Home  </Link> / Career Details</p>
                 </div>
             </div>
 
             <div className="w-11/12 mx-auto grid grid-cols-12 gap-6 border rounded-2xl p-5">
-                <div className="col-span-5">
-                    <img src={image} className="w-full object-cover rounded-2xl" alt="image" />
+                <div className="col-span-12 lg:col-span-5">
+                    <img src={image} className="w-full h-full object-cover rounded-2xl" alt="image" />
                 </div>
-                <div className="col-span-7">
-                    <h2 className="font-bold text-3xl mb-3">{service_name}</h2>
-                    <p className="font-bold text-lg text-gray-600 mb-3">{brief_description}</p>
-                    <p className="font-bold text-lg text-black mb-2">Category: <span className=" ml-1 px-4 py-1 bg-info rounded-2xl border border-white text-white">{category}</span></p>
-                    <p className="font-bold text-lg text-black mb-2">Date: <span className="text-gray-600 ml-1">{duration}</span></p>
-                    <p className="font-bold text-lg text-black mb-2">Counselor: <span className="text-gray-600 ml-1">{counselor}</span></p>
-                    <p className="font-bold text-lg text-black mb-2">Price: <span className=" ml-1 text-red-500">{pricing}</span></p>
-                    <div className="font-bold text-lg text-black flex gap-2 items-center">Rating: 
+                <div className="col-span-12 lg:col-span-7">
+                    <h2 className="font-bold lg:text-3xl md:text-2xl text-xl mb-3">{service_name}</h2>
+                    <p className="font-bold text-base lg:text-lg text-gray-600 mb-3">{brief_description}</p>
+                    <p className="font-bold text-base lg:text-lg text-black mb-2">Category: <span className=" ml-1 px-4 py-1 bg-info rounded-2xl border border-white text-white">{category}</span></p>
+                    <p className="font-bold text-base lg:text-lg text-black mb-2">Date: <span className="text-gray-600 ml-1">{duration}</span></p>
+                    <p className="font-bold text-base lg:text-lg text-black mb-2">Counselor: <span className="text-gray-600 ml-1">{counselor}</span></p>
+                    <p className="font-bold text-base lg:text-lg text-black mb-2">Price: <span className=" ml-1 text-red-500">{pricing}</span></p>
+                    <div className="font-bold text-base lg:text-lg text-black flex gap-2 items-center">Rating: 
                         <div className="rating rating-base rating-half">
                             <input type="radio" name="rating-10" className="rating-hidden" />
                             <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-green-500" />
@@ -98,10 +98,10 @@ const CareerDetails = () => {
                         </div>
                         <span className=" ml-2 text-green-600">({rating})</span>
                     </div>
-                    <div className="mt-6 flex gap-4 items-center">
-                    <button onClick={()=> bookNowService(id)} className="btn btn-success btn-sm rounded-3xl text-white">Book Now</button>
-                    <button onClick={showInputField} className="btn btn-info rounded-3xl btn-sm">Give Feedback</button>
-                    <button onClick={()=> navigate(-1)} className="btn btn-info rounded-3xl btn-sm">Go back</button>
+                    <div className="mt-6 flex flex-wrap gap-4 items-center">
+                        <button onClick={()=> bookNowService(id)} className="btn btn-success btn-sm rounded-3xl text-white">Book Now</button>
+                        <button onClick={showInputField} className="btn btn-info rounded-3xl btn-sm">Give Feedback</button>
+                        <button onClick={()=> navigate(-1)} className="btn btn-info rounded-3xl btn-sm">Go back</button>
                     </div>
 
                     <div id="feedback" className="hidden">

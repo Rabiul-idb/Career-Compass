@@ -3,13 +3,13 @@ import abtImg from "../assets/Images/about.jpg"
 
 const About = () => {
     return (
-        <div className="w-11/12 mx-auto grid grid-cols-2 gap-10">
+        <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
                 <img src={abtImg} className="rounded-xl w-full object-cover" alt="" />
             </div>
             <div>
                 <span className="text-lg font-semibold uppercase text-info mb-5">who we are</span>
-                <h2 className="text-4xl font-bold text-slate-900 mb-4 leading-tight">We Care about your<br></br>Dream Career</h2>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 leading-tight">We Care about your<br></br>Dream Career</h2>
                 <p className="text-base font-semibold text-slate-700 ">
                     We are a team of passionate individuals who are dedicated to helping you achieve your dream career. With years of experience in the industry, we have the knowledge and expertise to guide you every step of the
                     way.

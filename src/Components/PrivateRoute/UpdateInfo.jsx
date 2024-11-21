@@ -38,9 +38,9 @@ const UpdateInfo = () => {
           <title>Update info || Career Compass</title>
         </Helmet>
     
-  <div className="hero-content w-[70%] lg:grid grid-cols-2 gap-7 ">
+  <div className="flex flex-col-reverse py-8 sm:flex-row lg:w-[70%] lg:grid grid-cols-2 gap-7 ">
     <div className="card bg-base-100 shadow-2xl">
-    <h2 className="text-center font-semibold mt-5 text-2xl -mb-6">Update your Info</h2>
+      <h2 className="text-center font-semibold mt-5 text-2xl -mb-6">Update your Info</h2>
       <form onSubmit={handleUpdate} className="card-body">
         <div className="form-control">
           <label className="label">

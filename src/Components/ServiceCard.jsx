@@ -15,7 +15,7 @@ const ServiceCard = ({cardData}) => {
   <figure>
     <img src={image} className="w-full h-[250px] object-cover rounded-xl"/>
   </figure>
-  <div className="card-body">
+  <div className="card-body px-0">
     <h2 className="card-title">
       {service_name}
       <div className={`badge badge-info `}>{category}</div>
@@ -28,14 +28,13 @@ const ServiceCard = ({cardData}) => {
             <input type="radio" name="rating-10" className="rating-hidden" />
             <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-green-500" />
             <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-2 bg-green-500" />
-            <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-green-500"
-                defaultChecked />
+            <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-green-500"/>
             <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-2 bg-green-500" />
             <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-green-500" />
             <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-2 bg-green-500" />
             <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-green-500" />
             <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-2 bg-green-500" />
-            <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-green-500" />
+            <input type="radio" name="rating-10" className="mask mask-star-2 mask-half-1 bg-green-500" defaultChecked />
         </div>
         <span className="ml-2">({rating})</span></div>
       <button onClick={()=> CareerDetails(id)} className="btn btn-info rounded-3xl py-1 text-base text-white block mt-2 w-full">view Details</button>

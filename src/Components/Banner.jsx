@@ -30,7 +30,7 @@ export default function Banner() {
       >
         <SwiperSlide>
           
-        <img src={banner1} className=' object-top' alt="" />
+        <img src={banner1} className=' object-top ' alt="" />
 
 
             {/* <div className='bg-banner-1 bg-no-repeat bg-cover  h-[600px]'>
