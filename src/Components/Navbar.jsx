@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContex } from "../ContextProvider/ContextProvider";
+import logo from '../assets/Images/icon_5.png';
 
 
 
@@ -15,7 +16,8 @@ const Navbar = () => {
     return (
         <div className="navbar  flex justify-between items-center w-11/12 mx-auto">
             <div className="">
-                <a className="btn btn-ghost text-2xl font-semibold text-white">Career Compass</a>
+                <img src={logo} alt="" />
+                <Link to={'/'} className="ml-2 text-2xl font-semibold text-white">Career Compass</Link>
             </div>
             <div>
                 <ul className="flex gap-6">

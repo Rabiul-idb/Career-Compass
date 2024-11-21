@@ -3,6 +3,7 @@ import { AuthContex } from "../ContextProvider/ContextProvider";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoMdSend } from "react-icons/io";
 import img from '../assets/Images/abt-banner.jpg';
+import { Helmet } from "react-helmet-async";
 
 
 const CareerDetails = () => {
@@ -56,6 +57,13 @@ const CareerDetails = () => {
     return (
         <div className="">
            
+           <Helmet>
+           <link rel="icon" type="image/svg+xml" href="../assets/Images/icon_5.png" />
+            <title>Career Details || Career Compass</title>
+
+            <meta name="description" content="this is a Career details page of Career Compass" />
+            </Helmet>
+
            <div className=" relative mb-3">
                 <img src={img} className="object-cover object-center h-80 w-full" alt="" />
                 <div className="absolute top-20 left-20 ">

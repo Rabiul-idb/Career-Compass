@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContex } from "../../ContextProvider/ContextProvider";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateInfo = () => {
@@ -32,6 +33,10 @@ const UpdateInfo = () => {
 
     return (
         <div className="hero bg-base-200 min-h-screen">
+
+        <Helmet>
+          <title>Update info || Career Compass</title>
+        </Helmet>
     
   <div className="hero-content w-[70%] lg:grid grid-cols-2 gap-7 ">
     <div className="card bg-base-100 shadow-2xl">

@@ -14,6 +14,7 @@ import Register from './Components/Authentication/Register';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import UpdateInfo from './Components/PrivateRoute/UpdateInfo';
 import Dashboard from './Components/PrivateRoute/Dashboard';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -66,8 +67,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ContextProvider>
-      <RouterProvider router={router} />
-    </ContextProvider>
+    <HelmetProvider>
+      <ContextProvider>
+        <RouterProvider router={router} />
+      </ContextProvider>
+    </HelmetProvider>
   </StrictMode>,
 )

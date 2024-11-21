@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../ContextProvider/ContextProvider";
 import { FaRegEye ,FaEyeSlash } from "react-icons/fa";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -83,6 +84,11 @@ const Login = () => {
 
     return (
         <div className="border border-gray-500 rounded-2xl p-7 w-5/12 mx-auto mt-12 mb-10 bg-cyan-50 ">
+
+        <Helmet>
+          <title>Login || Career Compass</title>
+        </Helmet>
+
             <h2 className="font-bold text-3xl mb-5 text-center">User Login</h2>
             <div className="text-center">
                 <button onClick={loginWithGoogle} className="btn btn-info text-white text-lg block mx-auto my-5">login with google</button><br></br>

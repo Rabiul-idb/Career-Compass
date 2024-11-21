@@ -3,6 +3,7 @@ import { AuthContex } from "../../ContextProvider/ContextProvider";
 import SelectedCard from "./SelectedCard";
 import { Link } from "react-router-dom";
 import img from '../../assets/Images/abt-banner.jpg';
+import { Helmet } from "react-helmet-async";
 
 
 const Dashboard = () => {
@@ -12,6 +13,11 @@ const Dashboard = () => {
 
     return (
         <div className="">
+
+        <Helmet>
+          <title>Dashboard || Career Compass</title>
+        </Helmet>
+
             <div className=" relative mb-3">
                 <img src={img} className="object-cover object-center h-80 w-full" alt="" />
                 <div className="absolute top-20 left-20 ">

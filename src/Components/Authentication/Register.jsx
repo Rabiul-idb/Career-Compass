@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../ContextProvider/ContextProvider";
 import { FaRegEye ,FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -65,6 +66,12 @@ const Register = () => {
 
     return (
         <div className="border border-gray-500 rounded-2xl p-7 w-5/12 mx-auto mt-12 mb-10 bg-cyan-50">
+
+
+        <Helmet>
+          <title>Register || Career Compass</title>
+        </Helmet>
+
             <h2 className="font-bold text-3xl text-center">User Registration</h2>
             <hr className="my-3"/>
             <form onSubmit={handleSubmit}>
