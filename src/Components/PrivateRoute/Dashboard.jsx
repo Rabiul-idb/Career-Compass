@@ -1,0 +1,35 @@
+import { useContext } from "react";
+import { AuthContex } from "../../ContextProvider/ContextProvider";
+import SelectedCard from "./SelectedCard";
+import { Link } from "react-router-dom";
+import img from '../../assets/Images/abt-banner.jpg';
+
+
+const Dashboard = () => {
+
+    const {selectedItems, setSelectedItems} = useContext(AuthContex);
+    console.log(selectedItems)
+
+    return (
+        <div className="">
+            <div className=" relative mb-3">
+                <img src={img} className="object-cover object-center h-80 w-full" alt="" />
+                <div className="absolute top-20 left-20 ">
+                    <h1 className="font-bold text-5xl text-white">Your Dashboard</h1>
+                    <p className="font-black text-white text-base mt-5"><Link to={"/"} className="text-info hover:text-blue-700">Home  </Link> / Dashboard</p>
+                </div>
+            </div>
+            
+            <div className="w-11/12 mx-auto my-5">
+                <h2 className="font-semibold text-black text-2xl mb-6 text-center">Your Selected Career discussion</h2>
+                {
+                    selectedItems.map((item, index) => 
+                        <SelectedCard item = {item} key={index}></SelectedCard>
+                    )
+                }
+            </div>    
+        </div>
+    );
+};
+
+export default Dashboard;

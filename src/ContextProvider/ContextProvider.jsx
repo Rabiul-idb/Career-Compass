@@ -11,6 +11,7 @@ const ContextProvider = ({children}) => {
     const [allData, setAllData] = useState([]);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [selectedItems, setSelectedItems] = useState([]);
     
 
     useEffect(()=>{
@@ -77,6 +78,8 @@ const ContextProvider = ({children}) => {
         setLoading,
         forgotPassword,
         auth,
+        setSelectedItems,
+        selectedItems,
     }
 
     return (

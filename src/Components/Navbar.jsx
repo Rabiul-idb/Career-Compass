@@ -21,7 +21,12 @@ const Navbar = () => {
                 <ul className="flex gap-6">
                     <li><NavLink to={"/"} className="text-base font-semibold">Home</NavLink></li>
                     <li><NavLink to={"/about"} className="text-base font-semibold">About</NavLink></li>
+                    {
+                        user?.email && (<li><NavLink to={"/dashboard"} className="text-base font-semibold">Dashboard</NavLink></li>) 
+                    }
                     <li><NavLink to={"/contact"} className="text-base font-semibold">Contact</NavLink></li>
+
+                    
                 </ul>
             </div>
             <div className="">

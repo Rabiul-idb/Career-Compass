@@ -1,22 +1,34 @@
 import { useContext } from "react";
-import AbtBanner from "./AbtBanner";
 import { AuthContex } from "../ContextProvider/ContextProvider";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoMdSend } from "react-icons/io";
+import img from '../assets/Images/abt-banner.jpg';
 
 
 const CareerDetails = () => {
 
-    const {allData} = useContext(AuthContex);
+    const {allData, selectedItems, setSelectedItems , user} = useContext(AuthContex);
     //console.log(allData)
 
+    const navigate = useNavigate();
     const param = useParams();
     const serviceId = parseInt(param ?.id);
     //console.log(serviceId);
 
     const eachCardData = [...allData].find(i => i.id === serviceId)
     
-    const { image, service_name, category, brief_description, pricing, duration, counselor, rating} = eachCardData || {} ;
+    const {id, image, service_name, category, brief_description, pricing, duration, counselor, rating} = eachCardData || {} ;
+
+
+   
+    const bookNowService = (id) => {
+        
+        const items = allData.find((i) => i.id === id);
+        setSelectedItems([...selectedItems, items]);
+        alert('booked item')
+    };
+     //console.log(selectedItems);
+
 
     const showInputField = ()=>{
         const inputField = document.getElementById('feedback');
@@ -30,7 +42,7 @@ const CareerDetails = () => {
         const div = document.createElement('div');
         div.innerHTML = `
             <div>
-                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" class="w-11 rounded-full" alt="User" />
+                <img src=${user?.photoURL} class="w-11 rounded-full" alt="User" />
             </div>
             <div>
                 <p class="font-semibold text-base text-gray-600">${feedbackValue}</p>
@@ -42,9 +54,17 @@ const CareerDetails = () => {
     };
 
     return (
-        <div>
-            <AbtBanner></AbtBanner>
-            <div className="grid grid-cols-12 gap-6 border rounded-2xl p-5">
+        <div className="">
+           
+           <div className=" relative mb-3">
+                <img src={img} className="object-cover object-center h-80 w-full" alt="" />
+                <div className="absolute top-20 left-20 ">
+                    <h1 className="font-bold text-5xl text-white">Career Details</h1>
+                    <p className="font-black text-white text-base mt-5"><Link to={"/"} className="text-info hover:text-blue-700">Home  </Link> / Career Details</p>
+                </div>
+            </div>
+
+            <div className="w-11/12 mx-auto grid grid-cols-12 gap-6 border rounded-2xl p-5">
                 <div className="col-span-5">
                     <img src={image} className="w-full object-cover rounded-2xl" alt="image" />
                 </div>
@@ -70,7 +90,12 @@ const CareerDetails = () => {
                         </div>
                         <span className=" ml-2 text-green-600">({rating})</span>
                     </div>
-                    <button onClick={showInputField} className="btn btn-info rounded-3xl btn-sm mt-6 block">Give Feedback</button>
+                    <div className="mt-6 flex gap-4 items-center">
+                    <button onClick={()=> bookNowService(id)} className="btn btn-success btn-sm rounded-3xl text-white">Book Now</button>
+                    <button onClick={showInputField} className="btn btn-info rounded-3xl btn-sm">Give Feedback</button>
+                    <button onClick={()=> navigate(-1)} className="btn btn-info rounded-3xl btn-sm">Go back</button>
+                    </div>
+
                     <div id="feedback" className="hidden">
                         <label className="relative ">
                             <input id="feedbackValue" type="text"placeholder="Add your feedback"

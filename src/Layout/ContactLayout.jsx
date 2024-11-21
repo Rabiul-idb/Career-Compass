@@ -1,5 +1,6 @@
-import AbtBanner from "../Components/AbtBanner";
+
 import Contact from "../Components/Contact";
+import ContactBanner from "../Components/ContactBanner";
 import Cta from "../Components/Cta";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
@@ -12,7 +13,7 @@ const ContactLayout = () => {
           <Navbar></Navbar>
         </nav>
       </header>
-      <AbtBanner></AbtBanner>
+      <ContactBanner></ContactBanner>
       <Contact></Contact>
       <section>
         <Cta></Cta>

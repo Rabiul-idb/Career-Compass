@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
 
 const Service = () => {
 
     const [allData, setAllData] = useState([]);
+   useEffect(()=>{
     fetch('/serviceData.json')
     .then(response => response.json())
     .then(data => setAllData(data))
     .catch(error => console.error(error));
+   },[])
     
      
     

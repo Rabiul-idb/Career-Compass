@@ -13,6 +13,7 @@ import Login from './Components/Authentication/Login';
 import Register from './Components/Authentication/Register';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import UpdateInfo from './Components/PrivateRoute/UpdateInfo';
+import Dashboard from './Components/PrivateRoute/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,12 @@ const router = createBrowserRouter([
         path: "/updateInfo",
         element:<PrivateRoute>
                  <UpdateInfo></UpdateInfo>
+              </PrivateRoute>
+      },
+      {
+        path: "/dashboard",
+        element:<PrivateRoute>
+                 <Dashboard></Dashboard>
               </PrivateRoute>
       },
       {
