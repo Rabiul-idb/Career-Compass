@@ -15,7 +15,7 @@ const ContextProvider = ({children}) => {
     
 
     useEffect(()=>{
-        fetch('/public/serviceData.json')
+        fetch('/serviceData.json')
         .then(response => response.json())
         .then(data => setAllData(data))
         .catch(error => console.log('Error', error)
