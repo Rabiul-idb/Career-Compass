@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../ContextProvider/ContextProvider";
 import { FaRegEye ,FaEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { toast, ToastContainer } from "react-toastify";
 
 
 
@@ -50,7 +51,11 @@ const Register = () => {
             navigate('/')
             
            // console.log(user);
-            alert("Registerd")
+           toast.success("Congratulation! Successfull Registered ✅", {
+            position: "top-center",
+            autoClose: 2000,
+            theme: "dark"
+        })
             
             e.target.reset();
         })
@@ -109,6 +114,7 @@ const Register = () => {
 
             <p className="font-medium text-sm text-center mt-4">Already have an account?  <Link to={'/login'} className="text-info underline">Login here</Link></p>
             
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

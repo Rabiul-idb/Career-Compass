@@ -5,6 +5,8 @@ import { FaRegEye ,FaEyeSlash } from "react-icons/fa";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
 import { FaGoogle } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -30,7 +32,11 @@ const Login = () => {
         .then((respons) => {
             const user = respons.user;
             setUser(user);
-            alert("successfully login");
+            toast.success("Successfull login to your Account ✅", {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "dark"
+            })
             navigate(location?.state ? location.state : "/")
             e.target.reset();
            // console.log(user);
@@ -48,7 +54,11 @@ const Login = () => {
         }
         forgotPassword(email)
         .then(() => {
-          alert('a email send to your mail')
+            toast.success("A Email sent to your Account✅", {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "dark"
+            })
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -126,6 +136,9 @@ const Login = () => {
                 <button className="btn hover:bg-info bg-info text-white font-bold text-lg px-8 py-2 rounded-3xl border border-white mt-5 block mx-auto">Login</button>
             </form>
             <p className="font-medium text-sm text-center mt-4">Don't have an account? <Link to={'/register'} className="text-info underline">Click Here</Link></p>
+
+
+            <ToastContainer />
         </div>
     );
 };

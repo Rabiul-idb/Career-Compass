@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoMdSend } from "react-icons/io";
 import img from '../assets/Images/abt-banner.jpg';
 import { Helmet } from "react-helmet-async";
+import { toast, ToastContainer } from "react-toastify";
 
 
 const CareerDetails = () => {
@@ -26,7 +27,11 @@ const CareerDetails = () => {
         
         const items = allData.find((i) => i.id === id);
         setSelectedItems([...selectedItems, items]);
-        alert('booked item')
+        toast.success("Successfull added to your Dashboard ✅", {
+            position: "top-center",
+            autoClose: 2000,
+            theme: "dark"
+        })
     };
      //console.log(selectedItems);
 
@@ -116,6 +121,8 @@ const CareerDetails = () => {
             <div id="feedbackContainer" className="w-10/12 mx-auto p-6 border rounded-xl my-5">
                 <h3 className="text-center font-semibold text-2xl mb-5">Clients Feedbacks</h3>
             </div>
+
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

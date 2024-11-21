@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContex } from "../../ContextProvider/ContextProvider";
 import { updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet-async";
+import { toast, ToastContainer } from "react-toastify";
 
 
 const UpdateInfo = () => {
@@ -20,7 +21,11 @@ const UpdateInfo = () => {
             displayName: name, photoURL: photo
         }).then(() => {
         setUser({...user, displayName: name, photoURL : photo});
-        alert("profile updated");
+        toast.success("Successfull Updated your info✅", {
+          position: "top-center",
+          autoClose: 2000,
+          theme: "dark"
+      })
         }).catch((error) => {
         // An error occurred
         // ...
@@ -69,6 +74,7 @@ const UpdateInfo = () => {
       <p className="font-semibold text-lg text-black text-center"> {user?.email}</p>
     </div>
   </div>
+  <ToastContainer></ToastContainer>
 </div>
     );
 };

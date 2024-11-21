@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContex } from "../ContextProvider/ContextProvider";
 import logo from '../assets/Images/icon_5.png';
@@ -12,6 +12,7 @@ const Navbar = () => {
     const {user, logOut} = useContext(AuthContex);
    // console.log(user)
 
+   const [show, setShow] = useState(false);
 
 
     return (
@@ -43,16 +44,15 @@ const Navbar = () => {
                 {
                     user && user?.email ? (
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-11 rounded-full">
-                                <img
-                                alt="user" className="w-11 h-11 rounded-full"
-                                src={user?.photoURL} />
-                            </div>
+                            <div tabIndex={0} role="button" onClick={()=> setShow(!show)} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-11 rounded-full">
+                                    <img alt="user" className="w-11 h-11 rounded-full"
+                                    src={user?.photoURL} />
+                                </div>
                             </div>
                             <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow">
+                            className={`menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow ${show ? "block" : 'hidden'}`}>
                             
                             <li className="block lg:hidden"><a>{user?.displayName}</a></li>
                             <li><a>{user?.email}</a></li>
@@ -69,7 +69,8 @@ const Navbar = () => {
                     )
                 }
 
-                     {/* drawer start  */}
+
+                 {/* drawer start  */}
 
                 <div className="lg:hidden drawer drawer-end">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
