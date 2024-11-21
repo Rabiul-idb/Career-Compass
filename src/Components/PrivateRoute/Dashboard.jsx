@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet-async";
 const Dashboard = () => {
 
     const {selectedItems, setSelectedItems} = useContext(AuthContex);
-    console.log(selectedItems)
+    //console.log(selectedItems)
 
     return (
         <div className="">

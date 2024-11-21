@@ -1,7 +1,18 @@
+import { useContext } from "react";
+import { AuthContex } from "../../ContextProvider/ContextProvider";
 
 
 const SelectedCard = ({item}) => {
+
+    const {selectedItems, setSelectedItems} = useContext(AuthContex);
+
+
     const {id, image, service_name, category, brief_description, pricing, duration, counselor, rating} = item || {}
+
+    const deleteItem = (id)=>{
+        setSelectedItems(selectedItems.filter(item => item.id !== id))
+
+    }
 
     return (
         <div>
@@ -16,7 +27,7 @@ const SelectedCard = ({item}) => {
                     <p className="font-semibold text-base text-black">Date: <span className="text-gray-500">{duration}</span></p>
                     <p className="font-semibold text-base text-red-500">{pricing}</p>
                 </div>
-                <span className="font-semibold text-lg text-red-500 border bg-red-100 rounded-full h-10 w-10 flex justify-center items-center cursor-pointer absolute top-2 right-2">x</span>
+                <span onClick={()=> deleteItem(id)} className="font-semibold text-lg text-red-500 border bg-red-100 rounded-full h-10 w-10 flex justify-center items-center cursor-pointer absolute top-2 right-2">x</span>
             </div>
         </div>
     );
